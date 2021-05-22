@@ -2,8 +2,6 @@ version: "3"
 services:
     hub:
         image: selenium/hub:3.14
-        ports:
-            - "4444:4444"
     chrome:
         image: selenium/node-chrome:3.14
         depends_on:
@@ -27,7 +25,7 @@ services:
             - HUB_HOST=hub
             - MODULE=spethomepage-module.xml
         volumes:
-            - ./spethomepage-testresults:/usr/share/bfsdemo/test-output
+            - ./output/spethomepage-testresults:/usr/share/bfsdemo/test-output
     spetsearchpage-module:
         image: aadithyaks/selenium-docker
         depends_on:
@@ -38,4 +36,4 @@ services:
             - HUB_HOST=hub
             - MODULE=spetsearchpage-module.xml
         volumes:
-            - ./spetsearchpage-testresults:/usr/share/bfsdemo/test-output
+            - ./output/spetsearchpage-testresults:/usr/share/bfsdemo/test-output
